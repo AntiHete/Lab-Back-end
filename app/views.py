@@ -1,10 +1,14 @@
 from app import app
-from flask import jsonify
+from app import database as db
+
+from flask import jsonify, request
 from datetime import datetime
 
-@app.route('/healthcheck', methods=['GET'])
+@app.get("/healthcheck")
 def healthcheck():
-    return jsonify({
-        "status": "healthy",
-        "date": datetime.utcnow().isoformat()
-    }), 200
+    response = {
+        "message": "Healthcheck is running",
+        "date": datetime.today(),
+        "status": "ok"
+    }
+    return jsonify(response), 200
