@@ -1,4 +1,3 @@
-from app import views
 from flask import Flask
 from app.extensions import db, migrate
 from app.models import UserModel, CategoryModel, ExpenseModel
@@ -10,7 +9,7 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
- # Register Blueprints
+    # Реєстрація Blueprint
     app.register_blueprint(categories_bp)
 
     return app
