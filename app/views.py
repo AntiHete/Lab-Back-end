@@ -181,7 +181,6 @@ def get_records():
     if user_id is None and category_id is None:
         return jsonify({"message": "user_id or category_id is required"}), 400
     records = mk_db.get_records_by_user_and_category(user_id, category_id)
-    return jsonify(records), 200
 
 
 # PostgreSQL DB endpoints
